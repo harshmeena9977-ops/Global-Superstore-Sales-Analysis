@@ -24,16 +24,16 @@ The solution is a **three‑page Power BI dashboard**:
 ## 🖼️ Dashboard Screenshots
 
 ### 1. Sales & Profitability Overview
-![Sales & Profitability Overview]("D:\Global-Superstore-Sales-Analysis\Global_Superstore_Images\Overview.png.png")
+![Sales & Profitability Overview]("D:\hp\Global-Superstore-Sales-Analysis\Global_Superstore_Images\Overview.png.png")
 
 ### 2. Furniture Margin Optimization
-![Furniture Margin Optimization]("D:\Global-Superstore-Sales-Analysis\Global_Superstore_Images\Furniture.png.png")
+![Furniture Margin Optimization]("D:\hp\Global-Superstore-Sales-Analysis\Global_Superstore_Images\Furniture.png.png")
 
 ### 3. Customer Profitability & Shipping Efficiency
-![Customer Profitability & Shippiin Efficiency]("D:\Global-Superstore-Sales-Analysis\Global_Superstore_Images\Customer.png.png")
+![Customer Profitability & Shippiin Efficiency]("D:\hp\Global-Superstore-Sales-Analysis\Global_Superstore_Images\Customer.png.png")
 
 ### 4. Regional Profitability Map
-![Regional Profitability Map]("D:\Global-Superstore-Sales-Analysis\Global_Superstore_Images\Map.png.png")
+![Regional Profitability Map]("D:\hp\Global-Superstore-Sales-Analysis\Global_Superstore_Images\Map.png.png")
 
 ---
 
@@ -90,5 +90,6 @@ global-superstore-analytics/
 
 ## 📌 License
 MIT License — free to use and share.
+
 
 
