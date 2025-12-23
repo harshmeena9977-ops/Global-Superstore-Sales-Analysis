@@ -1,0 +1,44 @@
+# Key DAX Measures — Global Superstore Analytics
+
+## 📊 Sales & Profitability
+
+**Total Sales**
+```DAX
+Total Sales = SUM(Global_Superstore2[Sales])
+
+** Total Profit**
+```DAX
+Total Profit = SUM(Global_Superstore2[Profit])
+
+**Total Orders""
+```DAX
+Total Orders = DISTINCTCOUNT(Global_Superstore2[Order_ID])
+
+**Profit Margin**
+```DAX
+Profit Margin = DIVIDE([Total Profit], [Total Sales])
+
+**Avg Discount%**
+```DAX
+Avg Discount % = AVERAGE(Global_Superstore2[Discount])
+
+**Avg Profit by Discount**
+```DAX
+Avg Profit by Discount = 
+VAR AvgProfit =
+    AVERAGEX(
+        VALUES(Global_Superstore2[Discount]),
+        AVERAGE(Global_Superstore2[Profit])
+    )
+RETURN
+FORMAT(AvgProfit, "$#,##0.00; -$#,##0.00")
+
+
+
+**Avg Profit Per Order**
+```DAX
+AvgProfitPerOrder = 
+DIVIDE(
+    SUM(Global_Superstore2[Profit]),
+    COUNTROWS(Global_Superstore2)
+)
