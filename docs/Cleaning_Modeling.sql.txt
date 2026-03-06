@@ -1,0 +1,86 @@
+-- =========================================
+-- Global Superstore Analytics
+-- SQL Cleaning & Modeling Queries
+-- =========================================
+
+-- 1. KPI Summary
+SELECT 
+    ROUND(SUM(Sales),2) AS total_sales,
+    ROUND(SUM(Profit),2) AS total_profit,
+    ROUND(SUM(Profit)/SUM(Sales),4) AS profit_margin_pct,
+    COUNT(DISTINCT "Order ID") AS total_orders
+FROM superstore;
+
+-- 2. Category-wise Sales & Profit
+SELECT Category,
+       ROUND(SUM(Sales),2) AS total_sales,
+       ROUND(SUM(Profit),2) AS total_profit
+FROM superstore
+GROUP BY Category
+ORDER BY total_profit DESC;
+
+-- 3. Loss-Making Sub-Categories
+SELECT "Sub-Category",
+       ROUND(SUM(Sales),2) AS total_sales,
+       ROUND(SUM(Profit),2) AS total_profit
+FROM superstore
+GROUP BY "Sub-Category"
+HAVING total_profit < 0
+ORDER BY total_profit;
+
+-- 4. Top 10 Sub-Categories by Profit
+SELECT "Sub-Category",
+       ROUND(SUM(Profit),2) AS total_profit
+FROM superstore
+GROUP BY "Sub-Category"
+ORDER BY total_profit DESC
+LIMIT 10;
+
+-- 5. Top 10 Products by Profit
+SELECT "Product Name",
+       ROUND(SUM(Profit),2) AS total_profit
+FROM superstore
+GROUP BY "Product Name"
+ORDER BY total_profit DESC
+LIMIT 10;
+
+-- 6. Discount Impact Analysis
+SELECT ROUND(Discount,2) AS discount_level,
+       ROUND(AVG(Profit),2) AS avg_profit
+FROM superstore
+GROUP BY discount_level
+ORDER BY discount_level;
+
+-- 7. Regional Sales & Profit
+SELECT Region,
+       ROUND(SUM(Sales),2) AS total_sales,
+       ROUND(SUM(Profit),2) AS total_profit,
+       ROUND(SUM(Profit)/SUM(Sales),4) AS profit_margin_pct
+FROM superstore
+GROUP BY Region
+ORDER BY total_profit DESC;
+
+-- 8. Customer Segment Profitability
+SELECT Segment,
+       ROUND(SUM(Sales),2) AS total_sales,
+       ROUND(SUM(Profit),2) AS total_profit,
+       ROUND(SUM(Profit)/SUM(Sales),4) AS profit_margin_pct
+FROM superstore
+GROUP BY Segment
+ORDER BY total_profit DESC;
+
+-- 9. Top 10 Customers by Profit
+SELECT "Customer Name",
+       SUM(Profit) AS total_profit,
+       ROUND(SUM(Profit)/SUM(Sales),4) AS profit_margin_pct
+FROM superstore
+GROUP BY "Customer Name"
+ORDER BY total_profit DESC
+LIMIT 10;
+
+-- 10. Shipping Mode Analysis
+SELECT "Ship Mode",
+       SUM(Sales) AS total_sales,
+       SUM(Profit) AS total_profit
+FROM superstore
+GROUP BY "Ship Mode";

@@ -1,0 +1,21 @@
+# Business Insights — Global Superstore Analytics
+
+## 📊 Sales & Profitability Overview
+- **Technology** category delivers the highest profit (~$664K).
+- **Furniture** shows low margins (~6.9%) despite high sales, indicating discount/cost inefficiencies.
+- **Office Supplies** contributes steady profit (~$518K).
+- **Regional differences**: North Asia has the highest margin %, while EMEA lags with low profitability.
+
+## 🪑 Furniture Margin Optimization
+- **Tables** sub‑category generates losses (~$64K) due to average discounts above 25%.
+- **Chairs** and **Bookcases** remain profitable with ~15–16% average discounts.
+- **Recommendation:** Cap discounts at 25% to prevent margin erosion and revisit pricing strategy for Tables.
+
+## 👥 Customer Profitability & Shipping Efficiency
+- **Top 10 customers** contribute 20%+ margins (e.g., Tamara Chand ~$8.7K profit).
+- **Standard Class shipping** is most efficient (~$891K profit).
+- **Same Day shipping** yields lowest returns (~$76K profit), indicating high logistics costs.
+- **Recommendation:** Focus retention on top customers and promote Standard Class shipping where SLA allows.
+
+## 📈 Seasonal Trends
+- Q4 consistently shows peak sales and profit, highlighting opportunities for targeted promotions and inventory planning.
