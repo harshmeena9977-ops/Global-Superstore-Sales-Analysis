@@ -1,143 +1,56 @@
-# 🏪 Global Superstore Sales Analytics Dashboard
+# Global Superstore Sales Analysis
 
-## 📊 Problem Statement
-Global Superstore, a multinational retail corporation, needed actionable insights to optimize profitability across diverse product categories, regions, and customer segments. The company faced challenges with margin erosion, inefficient discount strategies, and lacked data-driven visibility into shipping and customer performance metrics.
+An independent analytics practice project using a retail transaction dataset. It explores sales and profit by category, region, customer segment, discount, and shipping mode through SQL analysis and a Power BI report. This is a portfolio exercise; it was not commissioned by or delivered to a company, and the findings are not measured business impact.
 
-## 🗄️ Dataset Overview
-**Source:** Global Superstore retail transaction data  
-**Size:** 12.1MB (10,000+ records)  
-**Time Period:** 2011-2014 (4 years of retail operations)  
-**Geography:** 50+ countries across 5 continents  
+## Project artifacts
 
-### Key Features:
-- **Sales Data:** Revenue, profit, discount percentages, quantity sold
-- **Product Hierarchy:** Categories (Furniture, Office Supplies, Technology) and sub-categories
-- **Customer Analytics:** Customer segments, purchase patterns, profitability metrics
-- **Operational Data:** Shipping modes, order dates, regional performance
-- **Geographic Information:** Country, state, city mapping for location analysis
+- [Open the Power BI report](outputs/Sales_Analysis.pbix)
+- [View the overview screenshot](outputs/Overview.png.png)
+- [View the furniture analysis screenshot](outputs/Furniture.png.png)
+- [View the customer analysis screenshot](outputs/Customer.png.png)
+- [View the regional map screenshot](outputs/Map.png.png)
+- [Browse SQL analysis queries](docs/Cleaning_Modeling.sql.txt)
+- [Open the executed analysis notebook](scripts/sales_performance_sql%20(1).ipynb)
+- [Read the Power BI measures notes](docs/measures.md.txt)
+- [Read the dashboard guide](outputs/dashboard_guide.md)
 
-## 🔬 Approach & Methodology
+## Questions explored
 
-### 1. Data Cleaning & Preparation
-- **Data Validation:** Removed duplicate orders and corrected missing values
-- **Feature Engineering:** Created profit margins, discount impact ratios
-- **SQL Transformation:** Cleaned and structured data using complex queries
+The analysis files contain queries and saved notebook outputs for:
 
-### 2. Business Intelligence Development
-- **Multi-Page Dashboard Architecture:** 3 focused analytical modules
-- **KPI Framework:** 20+ key performance indicators with drill-down capabilities
-- **Interactive Slicers:** Year, region, segment, category, and shipping filters
+- Comparing sales and profit by category, sub-category, region, and customer segment.
+- Reviewing discount levels alongside profit.
+- Listing products and customers by profit.
+- Comparing sales and profit by shipping mode.
+- Reviewing monthly and quarterly patterns.
 
-### 3. Advanced Analytics Implementation
-- **Profitability Analysis:** Category and regional profit contribution
-- **Discount Optimization:** Identified 25% discount threshold for margin protection
-- **Customer Segmentation:** High-value customer identification and retention strategies
+These are descriptive comparisons in the included dataset. They do not establish that a discount threshold causes a change in profit, or that a recommendation would improve a real business outcome. Numerical findings from older project notes have been omitted here until they are reconciled against the source data and the Power BI report.
 
-## 🛠️ Tools & Technologies
+## Data and limitations
 
-| Category | Tools | Purpose |
-|----------|-------|---------|
-| **Database** | SQL Server | Data cleaning, validation, KPI calculations |
-| **Analytics** | SQL, Excel | Data transformation and analysis |
-| **Visualization** | Power BI | Interactive dashboards, geographic mapping |
-| **Documentation** | Markdown | Technical documentation and insights |
+The repository includes a CSV file at data/Global_Superstore2.csv and an Excel workbook at data/Cleaned_data.csv.xlsx. The original publisher, source URL, version, and dataset reuse terms are not documented in this repository. The project license at docs/LICENSE does not establish rights to redistribute the dataset.
 
-## 💡 Key Insights & Business Impact
+The notebook contains saved results, but the repository does not yet provide a verified, end-to-end setup that recreates the database, imports the CSV, and runs every query from a clean environment. Treat the saved outputs as project artifacts pending that reproducibility check. Do not assume older row-count, geography, or metric claims are validated.
 
-### Revenue Optimization
-- **Technology Category:** $664K profit with highest margins (45% avg)
-- **Furniture Margin Alert:** Losses occur when discounts exceed 25%
-- **Regional Performance:** APAC region shows 23% higher profit margins
+## Repository layout
 
-### Operational Efficiency  
-- **Shipping Optimization:** Standard Class generates $891K profit (most efficient)
-- **Customer Profitability:** Top 10 customers contribute 20%+ of total margin
-- **Discount Strategy:** Identified optimal discount ranges by product category
+- data/ — source-named CSV and processed Excel workbook.
+- docs/ — SQL query file, analysis notes, DAX notes, technical notes, and project license.
+- outputs/ — Power BI report, screenshots, and dashboard guide.
+- scripts/ — Jupyter notebook and supporting notes.
 
-### Strategic Recommendations
-- **Margin Protection:** Cap furniture discounts at 25% threshold
-- **Customer Retention:** Focus on high-value customers like Tamara Chand ($8.7K margin)
-- **Shipping Strategy:** Promote Standard Class for cost efficiency
+## Review the report
 
-## 📈 Visualizations & Dashboards
+Download outputs/Sales_Analysis.pbix and open it in Power BI Desktop. The repository also includes four report screenshots for quick review. A live hosted dashboard is not provided. If Power BI asks for a data source path, point it to the included CSV or workbook and verify the report refresh before relying on its numbers.
 
-### Dashboard Modules
-1. **Sales & Profitability Overview:** Revenue trends, category performance
-2. **Furniture Margin Optimization:** Discount impact analysis  
-3. **Customer Profitability & Shipping Efficiency:** Customer segmentation
+## Reproducibility status
 
-### Key Visual Elements
-- **Geographic Maps:** Regional profit distribution across 50+ countries
-- **Trend Analysis:** Year-over-year performance tracking
-- **Profit Margin Charts:** Category and sub-category profitability
-- **Customer Analytics:** High-value customer identification
+The repository contains analysis artifacts, but a clean-run setup is not documented yet. Before treating the notebook outputs or report metrics as reproducible, document the database/engine and version, dataset import steps, file paths, required packages, and a fresh-run validation procedure. The SQL file includes queries but does not provide a complete database creation and loading script.
 
-## 🚀 How to Run This Project
+## Tools evidenced in the repository
 
-### Prerequisites
-```bash
-# Install Power BI Desktop
-# Install SQL Server (for data processing)
-# Clone repository
-```
+- SQL query files and SQL-oriented notebook analysis.
+- Power BI report and DAX measure notes.
+- CSV and Excel data files.
 
-### Setup Instructions
-```bash
-# 1. Clone repository
-git clone https://github.com/harshmeena9977-ops/Global-Superstore-Sales-Analysis.git
-cd Global-Superstore-Sales-Analysis
-
-# 2. Open Power BI Dashboard
-# Open Sales_Analysis.pbix in Power BI Desktop
-
-# 3. Explore Interactive Features
-# Use slicers for Year, Region, Segment, Category filtering
-# Navigate between 3 dashboard pages
-# Export insights using built-in Power BI features
-```
-
-### Data Processing
-```sql
--- Key SQL transformations available in:
--- scripts/Cleaning_Modeling.sql.txt
-
--- Sample profit margin calculation:
-SELECT 
-    Category,
-    SUM(Profit) / SUM(Sales) * 100 as Profit_Margin,
-    SUM(Sales) as Total_Revenue,
-    SUM(Profit) as Total_Profit
-FROM Global_Superstore2
-GROUP BY Category;
-```
-
-## 📋 Project Structure
-```
-├── README.md                    # This file
-├── Sales_Analysis.pbix          # Main Power BI dashboard
-├── Global_Superstore2.csv       # Raw dataset
-├── Cleaned_data.csv.xlsx        # Processed clean data
-├── sales_performance_sql.ipynb  # SQL analysis notebook
-├── Cleaning_Modeling.sql.txt    # Data transformation scripts
-├── insights.md.txt              # Key business findings
-├── measures.md.txt              # Power BI measure definitions
-└── Dashboard Screenshots/       # Visual outputs
-    ├── Overview.png
-    ├── Furniture.png
-    ├── Customer.png
-    └── Map.png
-```
-
-## 🏆 Resume Achievement
-
-**Senior Data Analyst** | Global Superstore Sales Analytics  
-*Developed comprehensive retail analytics dashboard analyzing 10K+ transactions across 50+ countries, identifying 25% discount optimization threshold that prevented margin erosion and enabled data-driven pricing strategies*
-
-## 📞 Contact & Repository
-- **GitHub:** [harshmeena9977-ops/Global-Superstore-Sales-Analysis](https://github.com/harshmeena9977-ops/Global-Superstore-Sales-Analysis)
-- **Live Dashboard:** Available in Sales_Analysis.pbix
-- **Dataset Source:** Global Superstore synthetic retail data
-
----
-
-*Last Updated: March 2026 | Project Version: 2.0 (Recruiter-Ready)*
+No SQL Server requirement is stated here because the repository does not include a verified SQL Server setup. The code, data, and dashboard have not been changed as part of this README update.
